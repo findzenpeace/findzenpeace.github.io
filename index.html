@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ----- SEO META TAGS UTAMA ----- -->
+<title>zen. | Personal Space & Fan Page Jennie Kim</title>
+<meta name="description" content="Selamat datang di ruang personal zen. Tempat berkumpulnya musik favorit dan galeri foto estetik Jennie Kim BLACKPINK terbaru.">
+<meta name="keywords" content="zen, personal space, jennie kim, blackpink, fanpage jennie, galeri foto jennie, spotify playlist">
+<meta name="author" content="zen.">
+<meta name="robots" content="index, follow">
+
+<!-- ----- OPEN GRAPH / FACEBOOK (Untuk Share Link) ----- -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/findzenpeace"> <!-- Ganti dengan URL asli websitemu jika sudah di-host/di-publish -->
+<meta property="og:title" content="zen. | Personal Space & Fan Page Jennie Kim">
+<meta property="og:description" content="Selamat datang di ruang personal zen. Tempat berkumpulnya musik favorit dan galeri foto estetik Jennie Kim BLACKPINK terbaru.">
+<meta property="og:image" content="https://camo.githubusercontent.com/ab110383c4f5fecefe8e6e3d257f651d5a5fce18c3ce1f81c1a91f5c2c7354a4/68747470733a2f2f66696c65732e636174626f782e6d6f652f7238317875322e6a7067"> <!-- Menggunakan salah satu link foto jennie dari galeri sebagai thumbnail share -->
+
+<!-- ----- TWITTER CARD ----- -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="zen. | Personal Space & Fan Page Jennie Kim">
+<meta name="twitter:description" content="Selamat datang di ruang personal zen. Tempat berkumpulnya musik favorit dan galeri foto estetik Jennie Kim BLACKPINK terbaru.">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/ab110383c4f5fecefe8e6e3d257f651d5a5fce18c3ce1f81c1a91f5c2c7354a4/68747470733a2f2f66696c65732e636174626f782e6d6f652f7238317875322e6a7067">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ----- BASE RESET & VARIABLES ----- */
+        :root {
+            --bg-fallback: linear-gradient(135deg, #0f172a, #1e3a8a, #0284c7);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shine: rgba(255, 255, 255, 0.25);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.45);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-fallback);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ----- BACKGROUND VIDEO FIXED ----- */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -20;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(30, 58, 138, 0.4) 100%);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            z-index: -10;
+        }
+
+        /* ----- APPLE LIQUID GLASS UI ----- */
+        .glass-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 12px 32px;
+            display: flex;
+            gap: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), inset 0 1px 1px var(--glass-shine);
+            width: max-content;
+            max-width: 90vw;
+        }
+
+        .glass-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .glass-nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 24px 60px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), inset 0 1px 2px var(--glass-shine);
+        }
+
+        /* ----- HERO SECTION ----- */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-card {
+            width: 100%;
+            max-width: 650px;
+            border-radius: 48px;
+            padding: 60px 40px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #dbeafe;
+            margin-bottom: 32px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 2px;
+            margin: 0 auto;
+        }
+
+        /* ----- SECTION TITLES ----- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .section-header svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 32px;
+            font-size: 1.05rem;
+        }
+
+        /* ----- GALLERY GRID ----- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ----- SOCIALS ----- */
+        .social-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            width: 68px;
+            height: 68px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .social-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-btn.fb:hover { color: #1877f2; }
+        .social-btn.tt:hover { color: #ff0050; }
+        .social-btn.tw:hover { color: #e2e8f0; }
+        .social-btn.ig:hover { color: #e1306c; }
+        .social-btn.gh:hover { color: #a855f7; }
+
+        /* ----- SPOTIFY CONTAINER ----- */
+        .spotify-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 24px;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+            margin-top: 60px;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        footer .disclaimer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ----- SCROLL ANIMATIONS ----- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .glass-panel {
+                padding: 28px 20px;
+            }
+            .container {
+                gap: 50px;
+                padding-top: 100px;
+            }
+            .glass-nav {
+                top: 16px;
+                padding: 10px 20px;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND VIDEO -->
+    <div class="video-container">
+        <!-- Gantilah URL video di bawah ini sesuka hatimu -->
+        <video autoplay loop muted playsinline>
+            <source src="https://files.catbox.moe/whw6v7.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <!-- BACKGROUND BLUR & SHADE (Fallback kalau video lambat/tidak termuat) -->
+    <div class="video-overlay"></div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="glass-nav">
+        <a href="#home">home</a>
+        <a href="#music">musik</a>
+        <a href="#gallery">photo</a>
+        <a href="#social">sosmed</a>
+    </nav>
+
+    <!-- CONTAINER UTAMA -->
+    <main class="container">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="hero reveal active">
+            <div class="glass-panel hero-card">
+                <h1>zen.</h1>
+                <p>welcome to my personal space.</p>
+                <div class="divider"></div>
+            </div>
+        </section>
+
+        <!-- MUSIC SECTION -->
+        <section id="music" class="reveal">
+            <div class="glass-panel">
+                <div class="section-header">
+                    <!-- Spotify Icon (SVG) -->
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.67-.136-.746-.472-.075-.336.136-.67.472-.746 3.856-.88 7.15-.51 9.822 1.13.295.178.387.563.207.858.002.005.002.005 0 0zm1.222-2.72c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.075-1.185-.413.125-.847-.107-.972-.52-.125-.413.107-.847.52-.972 3.665-1.112 8.233-.573 11.34 1.34.368.228.49.71.26 1.076v.001zm.106-2.827C14.524 8.892 8.91 8.706 5.66 9.692c-.51.155-1.047-.137-1.202-.647-.155-.51.137-1.046.647-1.202 3.738-1.134 9.917-.92 13.84 1.41.46.273.61.87.337 1.33-.274.46-.872.61-1.33.337l-.001-.001z"/></svg>
+                    <h2>musikk</h2>
+                </div>
+                <p class="section-desc">laguu fav gue banget inii, nemenin aku saat sedih, galau, marah 😭🫶🏻💗</p>
+                <div class="spotify-wrapper">
+                    <iframe src="https://open.spotify.com/embed/playlist/54Uh9K89NW2GiGpB6VpihF?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="reveal">
+            <div class="glass-panel">
+                <div class="section-header">
+                    <!-- Image Icon (SVG) -->
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <h2>fotoo</h2>
+                </div>
+                <p class="section-desc">randomm foto jennieee 💗😛</p>
+                
+                <div class="gallery-grid">
+                    <!-- Foto 1 -->
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2274542367/photo/new-york-new-york-jennie-attends-the-2026-met-gala-celebrating-costume-art-at-the.jpg?s=612x612&w=0&k=20&c=pGO9gsbSz0eT1Gxb2DCLAJCc2vzBNbit0BQH1vAa0Yk=" alt="jennie di met gala tahun 2026">
+                    </div>
+                    <!-- Foto 2 -->
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2176010707/photo/paris-france-jennie-kim-attends-the-chanel-paris-womenswear-spring-summer-2025-show-as-part.jpg?s=612x612&w=0&k=20&c=-ceGDELeV6m2C3uctb5dDZM2jzf9Mq3PxzKIRjCuCjs=" alt="jennie paris fashion week 2024">
+                    </div>
+                    <!-- Foto 3 -->
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2213062131/photo/jennie-kim-at-the-2025-met-gala-celebrating-superfine-tailoring-black-style-held-at-the.jpg?s=612x612&w=0&k=20&c=2VhBd3yyC9ZK7k-hPn-fSIbGJXdqBpHFC3ssZCVaWm4=" alt="jennie met gala tahun 2025">
+                    </div>
+                    <!-- Foto 4 -->
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/1432875246/photo/seoul-south-korea-jennie-aka-jennie-kim-of-girl-group-blackpink-poses-for-media-the-porsche.jpg?s=612x612&w=0&k=20&c=jWHHcJlqvHYMVL6I-MR_k_LLwuCaeRGtKH6AVzBp9WA=" alt="jennie di porsche seoul">
+                    </div>
+                    <!-- Foto 5 -->
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2196341974/photo/paris-france-jennie-kim-attends-the-chanel-haute-couture-spring-summer-2025-show-as-part-of.jpg?s=612x612&w=0&k=20&c=okIVq46TQX2Q6JXkrjawK9qNtRnRCY-eXG2RU4Urp1Y=" alt="jennie paris fashion week 2025">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2151291990/photo/jennie-kim-at-the-2024-met-gala-sleeping-beauties-reawakening-fashion-held-at-the.jpg?s=612x612&w=0&k=20&c=RbvQ5tKNbKjBaNwpcK5yLOC8r6dEaQmNe7PT_zBts9U=" alt="jennie met gala 2024">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2239221573/photo/jennie-kim-at-the-chanel-fashion-show-as-part-of-spring-summer-2026-paris-fashion-week-held.jpg?s=612x612&w=0&k=20&c=5Qf_XbmxV7sNetrry-xfA9S4LLYqYWFO3eTi4Y2_guA=" alt="gatau lupa">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2207592172/photo/inglewood-california-jennie-kim-attends-the-billboard-women-in-music-2025-held-attends-the.jpg?s=612x612&w=0&k=20&c=AFzLsi6sOOF1C7yAycMsOL-XqMcaRFC0WvFHdOQTAE4=" alt="jennie di billboard women 2025">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/1178300064/photo/paris-france-singer-jennie-kim-attends-the-chanel-womenswear-spring-summer-2020-show-as-part.jpg?s=612x612&w=0&k=20&c=uyYBDnAgc9pM16uRDcPJGaw8IPI2oMq3X-t2xGIdio8=" alt="jennie paris fashion week 2020">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2166398914/photo/seoul-south-korea-jennie-kim-of-blackpink-attends-pink-carpet-event-for-blackpinks-concert.jpg?s=612x612&w=0&k=20&c=VmBFNVbZaEvKy6E7bBD7ZVgotl7yVmGzPZ8ekf7byck=" alt="jennie merayakan 8th anniversary">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2177954503/photo/los-angeles-ca-jennie-kim-is-seen-on-october-15-2024-in-los-angeles-california.jpg?s=612x612&w=0&k=20&c=HUtKdtqnxmfkwlec9Crzs4xXBYVL4u9EMm2YgP4WMaI=" alt="jennie los angeles 2024">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/1492599506/photo/cannes-france-jennie-ruby-jane-attends-the-idol-photocall-at-the-76th-annual-cannes-film.jpg?s=612x612&w=0&k=20&c=K7BW3gxSmRi93T0ky9nzsikCQtuUzp6_9Fg3Tcal-2o=" alt="gatau">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2225011972/photo/incheon-south-korea-jennie-of-blackpink-is-seen-leaving-incheon-international-airport-for.jpg?s=612x612&w=0&k=20&c=asRoabFuwmU9aEfFYKw1MGzHa5Np90gynor29F4KHQI=" alt="jennie di airport Incheon">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/1848942562/photo/seoul-south-korea-jennie-kim-of-blackpink-attends-w-koreas-18th-breast-cancer-awareness.jpg?s=612x612&w=0&k=20&c=UGV-bvmChtYmYgstFNXDg7GigONUqqRFCh_UIoRx7hc=" alt="jennie wkorea">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2203191660/photo/incheon-south-korea-jennie-of-blackpink-is-seen-leaving-incheon-international-airport-for.jpg?s=612x612&w=0&k=20&c=72fyLSDg3l-Vh4VPWIfnKn7BN0vNB9BAnbJVOehnWNg=" alt="jennie airport Incheon">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/1482550311/photo/indio-california-jennie-of-blackpink-performs-at-the-coachella-stage-during-the-2023.jpg?s=612x612&w=0&k=20&c=VX4T-ijNgCOgkpBOW-R4GDGU4gq5heuhGEv5_9Qbu8M=" alt="jennie coachella 2023">
+                    </div>
+                    <div class="gallery-card">
+                        <img src="https://media.gettyimages.com/id/2210632925/photo/jennie-performs-onstage-at-the-2025-coachella-valley-music-and-arts-festival-on-april-20-2025.jpg?s=612x612&w=0&k=20&c=dd4Dx08bZCCLpirE69fFJMx_cwJJ9Hh2-2Q472SXK7A=" alt="jennie coachella 2025">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL / FIND ME SECTION -->
+        <section id="social" class="reveal">
+            <div class="glass-panel" style="text-align: center;">
+                <h2 style="font-size: 2rem; margin-bottom: 8px;">Find Me</h2>
+                <p class="section-desc" style="margin-bottom: 24px;">find me in another world.</p>
+                
+                <div class="social-flex">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/loveformeemmll" target="_blank" class="social-btn fb" title="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/ismailnuotdn" target="_blank" class="social-btn ig" title="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/findzenpeace" target="_blank" class="social-btn gh" title="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>zen.</h3>
+        <p class="disclaimer">
+            &copy; 2026 zen. All rights reserved.<br><br>
+            <strong>Disclaimer:</strong> Semua foto yang ditampilkan di dalam galeri ini <strong>bukanlah milik saya</strong>. Semua hak cipta gambar dan visual terkait milik Jennie Kim, YG Entertainment, ODD ATELIER, ataupun fotografer aslinya masing-masing. Ruang galeri ini dibuat murni hanya untuk apresiasi penggemar (fan-page) dan tidak bermaksud melanggar hak cipta.
+        </p>
+    </footer>
+
+    <!-- SCROLL REVEAL SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                if(!reveal.classList.contains('active')) {
+                    revealOnScroll.observe(reveal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
