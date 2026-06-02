@@ -68,6 +68,13 @@ This site is 100% static, so deploying it takes like 2 seconds, 极其省心 (su
 All photo assets in the gallery **are not mine** (图源网络, 侵删). All copyrights belongs to Jennie Kim, ODD ATELIER, YG Entertainment, the original photographers, or respective media outlets. This fan-page is created purely for appreciation and non-commercial vibes. 
 
 ---
+---
+
+<div align="center">
+  <p>Co-coded with 🤖 <a href="https://gemini.google.com/">Gemini AI</a></p>
+  <p><i>"It's giving teamwork makes the dream work ✨"</i></p>
+</div>
+
 
 <div align="center">
   <p>Made with 💖 by <a href="https://github.com/findzenpeace">zen.</a></p>
